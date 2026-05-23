@@ -80,6 +80,7 @@
           .devops/nix/apps.nix
           .devops/nix/devshells.nix
           .devops/nix/jetson-support.nix
+          .devops/nix/cuda-wrapper.nix 
         ];
 
         # An overlay can be used to have a more granular control over llama-cpp's
@@ -157,8 +158,8 @@
                 python-scripts = config.legacyPackages.llamaPackages.python-scripts;
               }
               // lib.optionalAttrs pkgs.stdenv.isLinux {
-                cuda = config.legacyPackages.llamaPackagesCuda.llama-cpp;
-
+                # cuda = config.legacyPackages.llamaPackagesCuda.llama-cpp;
+                # cuda = config.packages.cuda;
                 mpi-cpu = config.packages.default.override { useMpi = true; };
                 mpi-cuda = config.packages.default.override { useMpi = true; };
               }
