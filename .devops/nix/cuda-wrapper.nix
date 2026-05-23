@@ -23,7 +23,7 @@
       nativeBuildInputs = [ pkgsCuda.makeWrapper ];
 
       postBuild = ''
-        for bin in llama-cli llama-server llama-embedding llama-quantize; do
+        for bin in llama-cli llama-bench llama-server llama-embedding llama-quantize; do
           if [ -f $out/bin/$bin ]; then
             wrapProgram $out/bin/$bin \
               --prefix LD_LIBRARY_PATH : ${runtimeLibs}:/lib64:/usr/lib64
