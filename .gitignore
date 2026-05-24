@@ -110,7 +110,6 @@ uv.lock
 
 # Nix
 
-flake.lock
 /result
 
 # Test binaries
